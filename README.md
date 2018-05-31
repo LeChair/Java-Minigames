@@ -16,5 +16,10 @@ Hallo, ik ben monique, ik snap er niks van
 Stuart lukt het niet, ja je mist de context
 test 2ffff
 >>>>>>> Stashed changes
+<<<<<<< HEAD
 df
+>>>>>>> development
+=======
+
+Deze ding is vreemd mun - Jorrick
 >>>>>>> development
