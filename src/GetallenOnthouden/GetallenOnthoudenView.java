@@ -14,8 +14,10 @@ public class GetallenOnthoudenView extends JPanel {
 		getallenOnthoudenModel = new GetallenOnthoudenModel();
 		int getal = getallenOnthoudenModel.genereerGetal();
 		teOnthoudenGetalLabel = new JLabel("" + getal);
+		teOnthoudenGetalLabel.setVisible(true);
 		
-		invoervak = new JTextField("");
+		invoervak = new JTextField(10);
+		invoervak.setVisible(false);
 		
 		add(invoervak);
 		add(teOnthoudenGetalLabel);
