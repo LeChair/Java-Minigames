@@ -1,5 +1,17 @@
 package GetallenRaden;
 
-public class GetallenRadenController {
+import java.awt.*;
+import javax.swing.*;
 
+public class GetallenRadenController extends JPanel {
+	GetallenRadenView getallenRadenView;
+	
+	public GetallenRadenController(){
+		setLayout(new BorderLayout());
+		
+		getallenRadenView = new GetallenRadenView();
+			
+		add(getallenRadenView, BorderLayout.CENTER);
+			
+	}
 }

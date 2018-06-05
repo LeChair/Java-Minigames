@@ -7,7 +7,7 @@ public class MinigameView extends JPanel {
 	
 	public MinigameView(){
 		
-		teRadenGetalLabel = new JLabel
+		teRadenGetalLabel = new JLabel();
 		
 		invoervak = new JTextField("Monique doet een test");
 		
