@@ -34,7 +34,7 @@ public class GetallenOnthoudenController extends JPanel {
 		tijdbeschrijving = new JLabel("Verstreken tijd:");
 
 
-			
+
 	}
 
 	class TimerHandler implements ActionListener {
