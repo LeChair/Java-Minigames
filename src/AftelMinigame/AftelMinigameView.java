@@ -39,5 +39,4 @@ public class AftelMinigameView extends JPanel {
 		add(uitslagLabel, BorderLayout.LINE_END);
 		add(invoerKnop, BorderLayout.SOUTH);
 	}
-	//timer aanmaken, actionlistener voor de knop
 }
