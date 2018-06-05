@@ -11,4 +11,5 @@ public class MinigameController extends JPanel {
 			
 		add(minigameview, BorderLayout.CENTER);
 	}
+	//timer maken
 }

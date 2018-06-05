@@ -5,17 +5,20 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class GetallenOnthoudenView extends JPanel {
-	
+	private GetallenOnthoudenModel getallenOnthoudenModel;
 	public JTextField invoervak;
-	public JLabel teRadenGetalLabel;
+	public JLabel teOnthoudenGetalLabel;
 	
 	public GetallenOnthoudenView(){
 		
-		teRadenGetalLabel = new JLabel();
+		getallenOnthoudenModel = new GetallenOnthoudenModel();
+		int getal = getallenOnthoudenModel.genereerGetal();
+		teOnthoudenGetalLabel = new JLabel("" + getal);
 		
-		invoervak = new JTextField("Monique doet een test");
+		invoervak = new JTextField(10);
 		
 		add(invoervak);
+		add(teOnthoudenGetalLabel);
 	}
 
 	//timer maken
