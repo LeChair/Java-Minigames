@@ -38,8 +38,6 @@ public class GetallenOnthoudenView extends JPanel {
 			startTime = LocalTime.now();
 			isgestart=true;
 		}
-
-
 	}
 
 	class TimerHandler implements ActionListener {
