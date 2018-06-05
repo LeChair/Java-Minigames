@@ -10,6 +10,6 @@ public class AftelMinigame extends JFrame {
 		frame.setTitle( "Aftel Minigame" );
 		frame.setContentPane( new AftelMinigameController() );
 		frame.setVisible( true );
-		frame.setLocation(400, 100);
+		frame.setLocation(300, 100);
 	}
 }

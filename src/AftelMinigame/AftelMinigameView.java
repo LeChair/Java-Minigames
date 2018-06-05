@@ -20,8 +20,8 @@ public class AftelMinigameView extends JPanel {
 		
 		invoerKnop = new JButton();
 		invoerKnop.setBounds(150, 100, 50, 20);
-		startKnop = new JButton("Start");
-		startKnop.setBounds(150, 120, 70, 30);
+		startKnop = new JButton("Start het spel");
+		startKnop.setBounds(150, 120, 120, 30);
 		
 		add(timerLabel);
 		add(uitlegLabel);
