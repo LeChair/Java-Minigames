@@ -1,17 +1,33 @@
 package AftelMinigame;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class AftelMinigameView extends JPanel {
 	
-	public JTextField invoervak;
+	public JLabel timerLabel, uitlegLabel;
+	public JButton invoerKnop, startKnop;
 	
 	public AftelMinigameView(){
 		
-		invoervak = new JTextField("Hallo?");
+		setLayout(null);
 		
-		add(invoervak);
+		timerLabel = new JLabel("Verstreken tijd: ");
+		timerLabel.setBounds(100, 50, 300, 20);
+		uitlegLabel = new JLabel("Druk op de knop wanneer je denkt dat de tijd op 0 staat");
+		uitlegLabel.setBounds(50, 20, 400, 20);
+		
+		invoerKnop = new JButton();
+		invoerKnop.setBounds(150, 100, 50, 20);
+		startKnop = new JButton("Start het spel");
+		startKnop.setBounds(150, 120, 120, 30);
+		
+		add(timerLabel);
+		add(uitlegLabel);
+		add(invoerKnop);
+		add(startKnop);
 	}
 
-	//timer maken
+	//label maken. timer aanmaken, actionlistener voor de knop
 }
