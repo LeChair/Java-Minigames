@@ -13,6 +13,4 @@ public class MinigameView extends JPanel {
 		
 		add(invoervak);
 	}
-
-	//timer maken
 }
