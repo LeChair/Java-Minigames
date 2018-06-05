@@ -10,6 +10,6 @@ public class MinigameController extends JPanel {
 		minigameview = new MinigameView();
 			
 		add(minigameview, BorderLayout.CENTER);
-			
+			//werkt het nu nog?
 	}
 }
