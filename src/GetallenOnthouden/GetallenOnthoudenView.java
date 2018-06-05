@@ -1,15 +1,15 @@
-package GetallenRaden;
+package GetallenOnthouden;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class GetallenRadenView extends JPanel {
+public class GetallenOnthoudenView extends JPanel {
 	
 	public JTextField invoervak;
 	public JLabel teRadenGetalLabel;
 	
-	public GetallenRadenView(){
+	public GetallenOnthoudenView(){
 		
 		teRadenGetalLabel = new JLabel();
 		
