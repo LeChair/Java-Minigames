@@ -21,12 +21,15 @@ public class GetallenOnthoudenView extends JPanel {
 		getallenOnthoudenModel = new GetallenOnthoudenModel();
 		int getal = getallenOnthoudenModel.genereerGetal();
 		teOnthoudenGetalLabel = new JLabel("" + getal);
-		
+
+		tijdlabel = new JLabel (""+timer);
+		tijdbeschrijving = new JLabel("Verstreken tijd:");
+
+
 		invoervak = new JTextField(10);
 		
 		add(invoervak);
 		add(teOnthoudenGetalLabel);
-
 		add(tijdbeschrijving);
 		add(tijdlabel);
 
@@ -35,9 +38,6 @@ public class GetallenOnthoudenView extends JPanel {
 			startTime = LocalTime.now();
 			isgestart=true;
 		}
-		tijdlabel = new JLabel (""+timer);
-		tijdbeschrijving = new JLabel("Verstreken tijd:");
-
 
 
 	}
