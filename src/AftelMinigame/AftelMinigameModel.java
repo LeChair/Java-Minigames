@@ -1,16 +1,15 @@
 package AftelMinigame;
 
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.*;
 
 public class AftelMinigameModel {
-	public int randomStart, randomInvisible;
+	public int randomStart, randomInvisible, randomInvisible2;
 	
 	public AftelMinigameModel(){
-		
-		int randomNum = ThreadLocalRandom.current().nextInt(8, 15 + 1);
-		randomStart = randomNum;
-		randomInvisible = randomStart/2;
+		randomStart = (int) (Math.random()*8+8);
+		randomInvisible = (int) (Math.random()*3+1);
+		randomInvisible2 = randomStart/randomInvisible;
 		System.out.println(randomStart);
-		System.out.println(randomInvisible);
+		System.out.println(randomInvisible2);
 	}
 }

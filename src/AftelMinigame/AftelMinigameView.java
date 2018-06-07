@@ -5,32 +5,19 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
 
 @SuppressWarnings("serial")
 public class AftelMinigameView extends JPanel {
 	
 	public JLabel timerLabel, uitlegLabel, uitslagLabel;
 	public JButton invoerKnop, startKnop;
-	public Timer timer = new Timer(10, new TimerHandler());
-	public int elapsedTime;
-	LocalTime startTime=LocalTime.now();
-	LocalTime currentTime=LocalTime.now();
-	AftelMinigameModel aftelminigamemodel;
 	
 	public AftelMinigameView(){
 		
 		setLayout(new BorderLayout(10, 10));
 		
 		Font f1 = new Font(Font.DIALOG, Font.BOLD, 13);
-		
-		aftelminigamemodel = new AftelMinigameModel();
-		
+			
 		timerLabel = new JLabel("Verstreken tijd: ");
 		timerLabel.setFont(f1);
 		
@@ -51,17 +38,6 @@ public class AftelMinigameView extends JPanel {
 		add(timerLabel, BorderLayout.CENTER);
 		add(uitslagLabel, BorderLayout.LINE_END);
 		add(invoerKnop, BorderLayout.SOUTH);
-	}
-		
-	class TimerHandler implements ActionListener{
-		public void actionPerformed(ActionEvent e){
-			currentTime = LocalTime.now().minusSeconds(aftelminigamemodel.randomStart);
-			long elapsedtime= ChronoUnit.MILLIS.between(currentTime, startTime);
-			if((int)elapsedtime == aftelminigamemodel.randomInvisible){
-				timerLabel.setVisible(false);
-			}
-			timerLabel.setText("Verstreken tijd: " + String.format("%.2f", (double)(elapsedtime/1000.0)) + " seconden" );
-		}
 	}
 
 }
