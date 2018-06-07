@@ -17,7 +17,7 @@ public class GetallenOnthoudenView extends JPanel {
 	private boolean isgestart=false;
 	
 	public GetallenOnthoudenView(){
-		
+
 		getallenOnthoudenModel = new GetallenOnthoudenModel();
 		int getal = getallenOnthoudenModel.genereerGetal();
 		teOnthoudenGetalLabel = new JLabel("" + getal);

@@ -8,7 +8,7 @@ public class GetallenOnthouden extends JFrame {
 		frame.setSize(600, 500);
 		frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		frame.setTitle( "Mini Games" );
-		frame.setContentPane( new GetallenOnthoudenView() );
+		frame.setContentPane( new GetallenOnthoudenController() );
 		frame.setVisible( true );
 	}
 }
