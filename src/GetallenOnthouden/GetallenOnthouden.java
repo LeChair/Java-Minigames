@@ -12,3 +12,7 @@ public class GetallenOnthouden extends JFrame {
 		frame.setVisible( true );
 	}
 }
+
+
+//verschillende views (per scherm?), na op de startknop te hebben geklikt wordt er met een functie
+//een andere view geladen?
