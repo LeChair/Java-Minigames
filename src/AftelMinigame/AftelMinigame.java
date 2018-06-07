@@ -5,11 +5,13 @@ import javax.swing.JFrame;
 public class AftelMinigame extends JFrame {
 	public static void main( String args[] ) {
 		JFrame frame = new AftelMinigame();
-		frame.setSize(550, 150);
-		frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-		frame.setTitle( "Aftel Minigame" );
-		frame.setContentPane( new AftelMinigameController() );
-		frame.setVisible( true );
-		frame.setLocation(300, 100);
+	}
+	
+	public AftelMinigame() {
+		setSize(550, 150);
+		setTitle( "Aftel Minigame" );
+		setContentPane( new AftelMinigameController() );
+		setVisible( true );
+		setLocation(300, 100);
 	}
 }
