@@ -6,16 +6,14 @@ import java.awt.event.ActionListener;
 
 public class CheckView extends JPanel {
     private GetallenOnthoudenModel getallenonthoudenmodel;
-    private GetallenOnthoudenController getallenonthoudencontroller;
     private InvoerView invoerview;
     private JLabel randomnummer, gegevenantwoord, levellabel;
     private int level=1;
     private JButton reset, next;
 
-    public CheckView(GetallenOnthoudenController controller){
+    public CheckView(){
         getallenonthoudenmodel = new GetallenOnthoudenModel();
         invoerview = new InvoerView();
-        getallenonthoudencontroller = controller;
         randomnummer = new JLabel("Nummer: " /*+ getallenonthoudeview.getal*/);
 
         gegevenantwoord = new JLabel("Jouw antwoord: "/*+ getallenonthoudeview.getal*/);
@@ -40,7 +38,6 @@ public class CheckView extends JPanel {
     class NextHandler implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             int gamescreen = 2;
-            getallenonthoudencontroller.showNextScreen();
         }
     }
 

@@ -50,10 +50,10 @@ public class AftelMinigameController extends JPanel {
 					aftelminigameview.uitslagLabel.setText("Woa! Goed gedaan man!");
 				// Tussen de 1 en de 2
 				} else if(elapsedTime >= 1 && elapsedTime <= 2){
-					aftelminigameview.uitslagLabel.setText("Wel oké, maar kan beter!");
+					aftelminigameview.uitslagLabel.setText("Wel ok, maar kan beter!");
 				// Tussen de -1 en de -2
 				} else if(elapsedTime <= -1 && elapsedTime >= -2){
-					aftelminigameview.uitslagLabel.setText("Wel oké, maar kan beter!");
+					aftelminigameview.uitslagLabel.setText("Wel ok, maar kan beter!");
 				// Boven de 2 en onder de -2
 				} else if(elapsedTime > 2 || elapsedTime < -2){
 					aftelminigameview.uitslagLabel.setText("Best wel slecht man");
