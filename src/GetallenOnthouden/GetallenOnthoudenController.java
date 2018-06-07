@@ -9,6 +9,7 @@ import javax.swing.border.Border;
 public class GetallenOnthoudenController extends JPanel {
 	private GetallenOnthoudenView getallenRadenView;
 	private InvoerView invoerview;
+	private CheckView checkview;
     public JButton startgame;
     public int gamescreen = 0;
 	
@@ -18,7 +19,9 @@ public class GetallenOnthoudenController extends JPanel {
         startgame = new JButton("Start spel");
         startgame.addActionListener(new Screen2Handler());
 
-        add(startgame, BorderLayout.NORTH);
+//        add(startgame, BorderLayout.NORTH);
+        checkview = new CheckView();
+        add(checkview, BorderLayout.CENTER);
 
 	}
 
@@ -41,4 +44,14 @@ public class GetallenOnthoudenController extends JPanel {
             remove(getallenRadenView);
         }
     }
+
+    class NextHandler implements ActionListener{
+        public void actionPerformed(ActionEvent e) {
+            int gamescreen = 2;
+        }
+    }
+
+//    public void showNextScreen(){
+//        gamescreen++;
+//    }
 }
