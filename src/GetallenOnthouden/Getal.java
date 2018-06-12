@@ -1,10 +1,8 @@
 package GetallenOnthouden;
 
-import java.util.ArrayList;
-
 public class Getal {
 
-    public static int GenereerGetal;
+    public int GenereerGetal;
 
     public int genereerGetal() {
         this.GenereerGetal = (int) (10 * Math.random());

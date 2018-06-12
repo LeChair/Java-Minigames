@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 public class InvoerView extends JPanel {
     public JTextField getalinvoer;
     public JLabel getalvraag, controletekst;
-    public int invoer;
+    public String invoer = "";
 
     public InvoerView(){
 
@@ -25,7 +25,7 @@ public class InvoerView extends JPanel {
 
     class CheckHandler implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            invoer = Integer.parseInt(getalinvoer.getText());
+            invoer = getalinvoer.getText();
             System.out.println(invoer);
         }
     }
