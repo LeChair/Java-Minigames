@@ -15,23 +15,16 @@ public class GetallenOnthoudenView extends JPanel {
 	LocalTime startTime=LocalTime.now();
 	LocalTime currentTime=LocalTime.now();
 	private boolean isgestart=false;
-	public ArrayList<Getal> getallenLijst;
+	public Getal getal;
 	
 	public GetallenOnthoudenView(){
 
-		getallenLijst = new ArrayList<Getal>();
-		for (int i = 0; i <4; i++) {
-			getallenLijst.add(new Getal());
-		}
-
-		for(Getal g : getallenLijst){
-			getallenLijst.add(g);
-		}
-
+		
+		getal = new Getal(23);
+		
 		getallenOnthoudenModel = new GetallenOnthoudenModel();
 
-		int getal = getallenOnthoudenModel.genereerGetal();
-		teOnthoudenGetalLabel = new JLabel("" + getal);
+		teOnthoudenGetalLabel = new JLabel("" + getal.getGetal());
 		teOnthoudenGetalLabel.setVisible(true);
 
 //		int getal = Getal.genereerGetal();
@@ -39,9 +32,6 @@ public class GetallenOnthoudenView extends JPanel {
 
 		tijdlabel = new JLabel (""+timer);
 		tijdbeschrijving = new JLabel("Verstreken tijd:");
-
-
-		invoervak = new JTextField(10);
 
 		
 		tijdlabel = new JLabel (""+timer);

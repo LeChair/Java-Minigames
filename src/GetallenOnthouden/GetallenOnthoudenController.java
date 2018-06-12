@@ -21,11 +21,11 @@ public class GetallenOnthoudenController extends JPanel {
 
         add(startgame, BorderLayout.NORTH);
 //        checkview = new CheckView();
-<<<<<<< HEAD
+
   //      add(checkview, BorderLayout.CENTER);
-=======
+
 //        add(checkview, BorderLayout.CENTER);
->>>>>>> branch 'development' of https://github.com/LeChair/Java-Minigames.git
+
 
 	}
 
