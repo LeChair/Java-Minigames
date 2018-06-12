@@ -7,7 +7,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 public class GetallenOnthoudenController extends JPanel {
-	private GetallenOnthoudenView getallenRadenView;
+	private GetallenOnthoudenView getallenonthoudenview;
 	private InvoerView invoerview;
 	private CheckView checkview;
     public JButton startgame;
@@ -19,17 +19,17 @@ public class GetallenOnthoudenController extends JPanel {
         startgame = new JButton("Start spel");
         startgame.addActionListener(new Screen2Handler());
 
-//        add(startgame, BorderLayout.NORTH);
-        checkview = new CheckView();
-        add(checkview, BorderLayout.CENTER);
+        add(startgame, BorderLayout.NORTH);
+//        checkview = new CheckView();
+//        add(checkview, BorderLayout.CENTER);
 
 	}
 
     class Screen2Handler implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             gamescreen = 1;
-            getallenRadenView = new GetallenOnthoudenView();
-            add(getallenRadenView, BorderLayout.CENTER);
+            getallenonthoudenview = new GetallenOnthoudenView();
+            add(getallenonthoudenview, BorderLayout.CENTER);
             System.out.println(gamescreen);
             remove(startgame);
         }
@@ -41,7 +41,7 @@ public class GetallenOnthoudenController extends JPanel {
             invoerview = new InvoerView();
             add(invoerview, BorderLayout.CENTER);
             System.out.println(gamescreen);
-            remove(getallenRadenView);
+            remove(getallenonthoudenview);
         }
     }
 
