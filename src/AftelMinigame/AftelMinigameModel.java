@@ -14,7 +14,7 @@ public class AftelMinigameModel {
 		return this.randomStart;
 	}
 
-	public int getRandomInvisible(){
+	public int getRandomOnzichtbaar(){
 		return this.randomOnzichtbaar;
 	}
 
