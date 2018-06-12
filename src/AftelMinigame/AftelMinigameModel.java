@@ -1,13 +1,21 @@
 package AftelMinigame;
 
-import java.util.*;
-
 public class AftelMinigameModel {
-	public int randomStart, randomInvisible, randomInvisible2;
-	
+	private int randomStart, randomOnzichtbaar;
+
 	public AftelMinigameModel(){
+		// Random waardes voor een starttijd en waarop de tijd label ontzichtbaar wordt
 		randomStart = (int) (Math.random()*8+8);
-		randomInvisible = (int) (Math.random()*3+1);
-		randomInvisible2 = randomStart/randomInvisible;
+		randomOnzichtbaar = randomStart / (int) (Math.random()*3+1);
 	}
+
+	// Getters
+	public int getRandomStart(){
+		return this.randomStart;
+	}
+
+	public int getRandomInvisible(){
+		return this.randomOnzichtbaar;
+	}
+
 }

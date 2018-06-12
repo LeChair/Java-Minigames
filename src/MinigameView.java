@@ -6,8 +6,8 @@ import javax.swing.*;
 @SuppressWarnings("serial")
 public class MinigameView extends JPanel {
 	
-	public JLabel titellabel, emptylabel;
-	public JButton spel1knop, spel2knop, spel3knop, spel4knop;
+	public JLabel titelLabel, legeLabel;
+	public JButton spel1Knop, spel2Knop, spel3Knop, spel4Knop;
 	
 	public MinigameView(){
 		
@@ -15,25 +15,41 @@ public class MinigameView extends JPanel {
 		
 		Font f1 = new Font(Font.DIALOG, Font.BOLD, 13);
 		
-		spel1knop = new JButton("Aftel Minigame");
-		spel1knop.setFont(f1);
-		spel2knop = new JButton("Getal onthouden Minigame");
-		spel2knop.setFont(f1);
-		spel3knop = new JButton("Coming soon");
-		spel3knop.setFont(f1);
-		spel4knop = new JButton("Coming soon");
-		spel4knop.setFont(f1);
+		spel1Knop = new JButton("Aftel Minigame");
+		spel1Knop.setFont(f1);
+		spel2Knop = new JButton("Getal onthouden Minigame");
+		spel2Knop.setFont(f1);
+		spel3Knop = new JButton("Coming soon");
+		spel3Knop.setFont(f1);
+		spel4Knop = new JButton("Coming soon");
+		spel4Knop.setFont(f1);
 		
-		titellabel = new JLabel("Minigames Whoooooooo!");
-		titellabel.setFont(f1);
+		titelLabel = new JLabel("Minigames Whoooooooo!");
+		titelLabel.setFont(f1);
 		
-		emptylabel = new JLabel("");
+		legeLabel = new JLabel("");
 		
-		add(titellabel);
-		add(emptylabel);
-		add(spel1knop);
-		add(spel2knop);
-		add(spel3knop);
-		add(spel4knop);
+		add(titelLabel);
+		add(legeLabel);
+		add(spel1Knop);
+		add(spel2Knop);
+		add(spel3Knop);
+		add(spel4Knop);
+	}
+	
+	public JButton getSpel1Knop(){
+		return this.spel1Knop;
+	}
+
+	public JButton getSpel2Knop(){
+		return this.spel2Knop;
+	}
+	
+	public JButton getSpel3Knop(){
+		return this.spel3Knop;
+	}
+	
+	public JButton getSpel4Knop(){
+		return this.spel4Knop;
 	}
 }
