@@ -8,7 +8,6 @@ import java.time.temporal.ChronoUnit;
 
 public class GetallenOnthoudenView extends JPanel {
 	private GetallenOnthoudenModel getallenOnthoudenModel;
-	public JTextField invoervak;
 	public JLabel teOnthoudenGetalLabel;
 	private JLabel tijdlabel, tijdbeschrijving;
 	private Timer timer = new Timer(10, new TimerHandler());
@@ -23,20 +22,12 @@ public class GetallenOnthoudenView extends JPanel {
 		teOnthoudenGetalLabel = new JLabel("" + getal);
 		teOnthoudenGetalLabel.setVisible(true);
 		
-		invoervak = new JTextField(10);
-		invoervak.setVisible(false);
-
-
 		tijdlabel = new JLabel (""+timer);
-		tijdbeschrijving = new JLabel("Verstreken tijd:");
+//		tijdbeschrijving = new JLabel("Verstreken tijd:");
 
 
-		invoervak = new JTextField(10);
-
-		
-		add(invoervak);
 		add(teOnthoudenGetalLabel);
-		add(tijdbeschrijving);
+//		add(tijdbeschrijving);
 		add(tijdlabel);
 
 		if (!isgestart) {
@@ -55,7 +46,7 @@ public class GetallenOnthoudenView extends JPanel {
 			long seconden = elapsedtime%60000;
 //            long milliseconden = elapsedtime/1000;
 
-			tijdlabel.setText("" + minuten + ":"+ seconden/1000 + " m:s");
+			tijdlabel.setText("Seconden:" + seconden/1000);
 //            tijdlabel.setText(String.format("%2.2f", (double)(elapsedtime/1000.0))+" seconden" );
 		}
 	}
