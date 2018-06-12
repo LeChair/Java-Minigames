@@ -20,7 +20,7 @@ public class CheckView extends JPanel {
 
         levellabel = new JLabel("Level " + level);
 
-        if(getallenonthoudenmodel.GenereerGetal == invoerview.invoer){
+        if(Getal.GenereerGetal == invoerview.invoer){
             System.out.println("Goed geraden");
             next = new JButton("Volgend level");
             next.addActionListener(new NextHandler());

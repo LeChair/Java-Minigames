@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 
 public class GetallenOnthoudenView extends JPanel {
 	private GetallenOnthoudenModel getallenOnthoudenModel;
@@ -14,13 +15,34 @@ public class GetallenOnthoudenView extends JPanel {
 	LocalTime startTime=LocalTime.now();
 	LocalTime currentTime=LocalTime.now();
 	private boolean isgestart=false;
+	public ArrayList<Getal> getallenLijst;
 	
 	public GetallenOnthoudenView(){
 
+		getallenLijst = new ArrayList<Getal>();
+		for (int i = 0; i <4; i++) {
+			getallenLijst.add(new Getal());
+		}
+
+		for(Getal g : getallenLijst){
+			getallenLijst.add(g);
+		}
+
 		getallenOnthoudenModel = new GetallenOnthoudenModel();
+
 		int getal = getallenOnthoudenModel.genereerGetal();
 		teOnthoudenGetalLabel = new JLabel("" + getal);
 		teOnthoudenGetalLabel.setVisible(true);
+
+//		int getal = Getal.genereerGetal();
+//		teOnthoudenGetalLabel = new JLabel("" + getal);
+
+		tijdlabel = new JLabel (""+timer);
+		tijdbeschrijving = new JLabel("Verstreken tijd:");
+
+
+		invoervak = new JTextField(10);
+
 		
 		tijdlabel = new JLabel (""+timer);
 //		tijdbeschrijving = new JLabel("Verstreken tijd:");
@@ -53,3 +75,6 @@ public class GetallenOnthoudenView extends JPanel {
 
 	//timer maken
 }
+
+
+//JLabel, te raden getal laten zien als String, ophalen uit JLabel en converteren naar int?
