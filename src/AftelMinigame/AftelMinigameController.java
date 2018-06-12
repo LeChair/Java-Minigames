@@ -65,7 +65,7 @@ public class AftelMinigameController extends JPanel {
 			// Elapsedtime aanmaken. Zie Stackoverflow.
 			long verstrekentijd = ChronoUnit.MILLIS.between(huidigeTijd, startTijd);
 			// Als de elapsedtime in secondes gelijk is aan de random invisible, zet de timerlabel op invisible.
-			if((int)verstrekentijd/1000 == aftelminigamemodel.getRandomInvisible()){
+			if((int)verstrekentijd/1000 == aftelminigamemodel.getRandomOnzichtbaar()){
 				aftelminigameview.getTimerLabel().setVisible(false);
 			}
 			// Zet de tijd om in seconden met 2 cijfers achter de komma zodat je een preciezere tijd kan aflezen
