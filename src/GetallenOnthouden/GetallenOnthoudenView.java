@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class GetallenOnthoudenView extends JPanel {
 	private GetallenOnthoudenModel getallenOnthoudenModel;
+	private GetallenOnthoudenController controller;
 	public JLabel teOnthoudenGetalLabel;
 	private JLabel tijdlabel, tijdbeschrijving;
 	private Timer timer = new Timer(10, new TimerHandler());
@@ -17,14 +18,13 @@ public class GetallenOnthoudenView extends JPanel {
 	private boolean isgestart=false;
 	public Getal getal;
 	
-	public GetallenOnthoudenView(){
+	public GetallenOnthoudenView(GetallenOnthoudenController controller){
 
-		
-		getal = new Getal(23);
-		
 		getallenOnthoudenModel = new GetallenOnthoudenModel();
 
-		teOnthoudenGetalLabel = new JLabel("" + getal.getGetal());
+		this.controller = controller;
+
+		teOnthoudenGetalLabel = new JLabel("" + controller.getGetal());
 		teOnthoudenGetalLabel.setVisible(true);
 
 //		int getal = Getal.genereerGetal();
@@ -54,12 +54,14 @@ public class GetallenOnthoudenView extends JPanel {
 			currentTime = LocalTime.now();
 			long elapsedtime= ChronoUnit.MILLIS.between(startTime, currentTime);
 
-			long minuten = elapsedtime / 60000;
-			long seconden = elapsedtime%60000;
-//            long milliseconden = elapsedtime/1000;
+			long milliseconden = elapsedtime%60000;
 
-			tijdlabel.setText("Seconden:" + seconden/1000);
+			tijdlabel.setText("Seconden:" + milliseconden/1000);
 //            tijdlabel.setText(String.format("%2.2f", (double)(elapsedtime/1000.0))+" seconden" );
+			if(milliseconden>1000){
+				controller.VolgendScherm();
+				timer.stop();
+			}
 		}
 	}
 

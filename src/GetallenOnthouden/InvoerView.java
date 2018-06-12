@@ -9,7 +9,7 @@ public class InvoerView extends JPanel {
     public JLabel getalvraag, controletekst;
     public String invoer = "";
 
-    public InvoerView(){
+    public InvoerView(GetallenOnthoudenController controller){
 
         getalvraag = new JLabel("Wat was het nummer?");
 

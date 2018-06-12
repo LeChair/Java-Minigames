@@ -7,20 +7,21 @@ import java.awt.event.ActionListener;
 public class CheckView extends JPanel {
     private GetallenOnthoudenModel getallenonthoudenmodel;
     private InvoerView invoerview;
+    private GetallenOnthoudenController controller;
     private JLabel randomnummer, gegevenantwoord, levellabel;
     private int level=1;
     private JButton reset, next;
 
-    public CheckView(){
+    public CheckView(Getal getal){
         getallenonthoudenmodel = new GetallenOnthoudenModel();
-        invoerview = new InvoerView();
+        invoerview = new InvoerView(controller);
         randomnummer = new JLabel("Nummer: " /*+ getallenonthoudeview.getal*/);
 
         gegevenantwoord = new JLabel("Jouw antwoord: "/*+ getallenonthoudeview.getal*/);
 
         levellabel = new JLabel("Level " + level);
 
-        if(Getal.GenereerGetal == invoerview.invoer){
+        if(getal.genereerGetal == invoerview.invoer){
             System.out.println("Goed geraden");
             next = new JButton("Volgend level");
             next.addActionListener(new NextHandler());

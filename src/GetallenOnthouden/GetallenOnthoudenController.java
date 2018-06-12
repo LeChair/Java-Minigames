@@ -12,6 +12,7 @@ public class GetallenOnthoudenController extends JPanel {
 	private CheckView checkview;
     public JButton startgame;
     public int gamescreen = 0;
+    private Getal getal;
 	
 	public GetallenOnthoudenController(){
 		setLayout(new BorderLayout());
@@ -29,33 +30,38 @@ public class GetallenOnthoudenController extends JPanel {
 
 	}
 
+    public Getal getGetal() {
+        return getal;
+    }
+
+
     class Screen2Handler implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            gamescreen = 1;
-            getallenonthoudenview = new GetallenOnthoudenView();
+            VolgendScherm();
+        }
+    }
+
+    public void VolgendScherm(){
+	    if(gamescreen==0){
+            getal = new Getal(5);
+            getallenonthoudenview = new GetallenOnthoudenView(this);
             add(getallenonthoudenview, BorderLayout.CENTER);
             System.out.println(gamescreen);
             remove(startgame);
         }
-    }
-
-    class Screen3Handler implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            gamescreen = 2;
-            invoerview = new InvoerView();
+	    else if(gamescreen==1){
+            invoerview = new InvoerView(this);
             add(invoerview, BorderLayout.CENTER);
             System.out.println(gamescreen);
             remove(getallenonthoudenview);
+        }else if(gamescreen==2){
+            checkview = new CheckView(getal);
+            add(checkview, BorderLayout.CENTER);
+            System.out.println(gamescreen);
+            remove(invoerview);
+        }else if(gamescreen==3){
+	        gamescreen=1;
         }
+        gamescreen++;
     }
-
-    class NextHandler implements ActionListener{
-        public void actionPerformed(ActionEvent e) {
-            int gamescreen = 2;
-        }
-    }
-
-//    public void showNextScreen(){
-//        gamescreen++;
-//    }
 }
