@@ -5,32 +5,41 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 
 public class GetallenOnthoudenView extends JPanel {
 	private GetallenOnthoudenModel getallenOnthoudenModel;
-	public JTextField invoervak;
 	public JLabel teOnthoudenGetalLabel;
 	private JLabel tijdlabel, tijdbeschrijving;
 	private Timer timer = new Timer(10, new TimerHandler());
 	LocalTime startTime=LocalTime.now();
 	LocalTime currentTime=LocalTime.now();
 	private boolean isgestart=false;
+	public Getal getal;
 	
 	public GetallenOnthoudenView(){
 
+		
+		getal = new Getal(23);
+		
 		getallenOnthoudenModel = new GetallenOnthoudenModel();
-		int getal = getallenOnthoudenModel.genereerGetal();
-		teOnthoudenGetalLabel = new JLabel("" + getal);
+
+		teOnthoudenGetalLabel = new JLabel("" + getal.getGetal());
+		teOnthoudenGetalLabel.setVisible(true);
+
+//		int getal = Getal.genereerGetal();
+//		teOnthoudenGetalLabel = new JLabel("" + getal);
 
 		tijdlabel = new JLabel (""+timer);
 		tijdbeschrijving = new JLabel("Verstreken tijd:");
 
-
-		invoervak = new JTextField(10);
 		
-		add(invoervak);
+		tijdlabel = new JLabel (""+timer);
+//		tijdbeschrijving = new JLabel("Verstreken tijd:");
+
+
 		add(teOnthoudenGetalLabel);
-		add(tijdbeschrijving);
+//		add(tijdbeschrijving);
 		add(tijdlabel);
 
 		if (!isgestart) {
@@ -49,10 +58,13 @@ public class GetallenOnthoudenView extends JPanel {
 			long seconden = elapsedtime%60000;
 //            long milliseconden = elapsedtime/1000;
 
-			tijdlabel.setText("" + minuten + ":"+ seconden/1000 + " m:s");
+			tijdlabel.setText("Seconden:" + seconden/1000);
 //            tijdlabel.setText(String.format("%2.2f", (double)(elapsedtime/1000.0))+" seconden" );
 		}
 	}
 
 	//timer maken
 }
+
+
+//JLabel, te raden getal laten zien als String, ophalen uit JLabel en converteren naar int?
