@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 @SuppressWarnings("serial")
 public class AftelMinigame extends JFrame {
 	public static void main( String args[] ) {
-		JFrame frame = new AftelMinigame();
+		new AftelMinigame();
 	}
 	
 	public AftelMinigame() {

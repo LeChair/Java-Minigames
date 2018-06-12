@@ -21,7 +21,11 @@ public class GetallenOnthoudenController extends JPanel {
 
         add(startgame, BorderLayout.NORTH);
 //        checkview = new CheckView();
+
+  //      add(checkview, BorderLayout.CENTER);
+
 //        add(checkview, BorderLayout.CENTER);
+
 
 	}
 

@@ -18,20 +18,20 @@ public class MinigameController extends JPanel {
 		
 		minigameview = new MinigameView();
 			
-		minigameview.spel1knop.addActionListener(new ActionListener(){
+		minigameview.getSpel1Knop().addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("spel1");
-				AftelMinigame frame = new AftelMinigame();
+				new AftelMinigame();
 			}
 		});
 		
-		minigameview.spel2knop.addActionListener(new ActionListener(){
+		minigameview.getSpel2Knop().addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("spel2");
-				GetallenOnthouden frame = new GetallenOnthouden();
+				new GetallenOnthouden();
 			}
 		});
 		

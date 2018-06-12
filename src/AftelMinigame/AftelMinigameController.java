@@ -10,70 +10,69 @@ import javax.swing.*;
 public class AftelMinigameController extends JPanel {
 	AftelMinigameView aftelminigameview;
 	AftelMinigameModel aftelminigamemodel;
-	public Timer timer = new Timer(10, new TimerHandler());
-	public int elapsedTime;
-	LocalTime startTime=LocalTime.now();
-	LocalTime currentTime=LocalTime.now();
-	
+	private Timer timer = new Timer(10, new TimerHandler());
+	private int verstrekenTijd;
+	LocalTime startTijd=LocalTime.now();
+	LocalTime huidigeTijd=LocalTime.now();
+
 	public AftelMinigameController(){
+		// Border layout maken voor de gehele applicatie
 		setLayout(new BorderLayout());
-		
+
+		// Nieuwe model en view toevoegen aan de controller
 		aftelminigamemodel = new AftelMinigameModel();
 		aftelminigameview = new AftelMinigameView();
-			
+
 		add(aftelminigameview, BorderLayout.CENTER);
-			
-		
-		aftelminigameview.startKnop.addActionListener(new ActionListener(){
+
+		// Action listener voor de startknop
+		aftelminigameview.getStartKnop().addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				currentTime = LocalTime.now().minusSeconds(aftelminigamemodel.randomStart);
+				// Random start waarde toewijzen aan de currentTime. Dit gebeurd zodat je kan spelen met nieuwe waardes.
+				huidigeTijd = LocalTime.now().minusSeconds(aftelminigamemodel.getRandomStart());
+				// Nog een keer het model aanmaken zodat er nieuwe waardes worden gegenereerd
 				aftelminigamemodel = new AftelMinigameModel();
-				startTime = LocalTime.now();
+				// Tijd starten en startknop + uitslag disablen
+				startTijd = LocalTime.now();
 				timer.start();
-				aftelminigameview.startKnop.setEnabled(false);
-				aftelminigameview.uitslagLabel.setText("");
+				aftelminigameview.uitzetten();
 			}
-			
+
 		});
-		
-		aftelminigameview.invoerKnop.addActionListener(new ActionListener(){
-			
+
+		// Action listener voor de invoerknop
+		aftelminigameview.getInvoerKnop().addActionListener(new ActionListener(){
+
 			@Override
 			public void actionPerformed(ActionEvent e){
+				// Timer stoppen
 				timer.stop();
-				aftelminigameview.startKnop.setEnabled(true);
-				aftelminigameview.timerLabel.setVisible(true);
-				// Tussen de -1 en de 1
-				if(elapsedTime < 1 && elapsedTime > -1){
-					aftelminigameview.uitslagLabel.setText("Woa! Goed gedaan man!");
-				// Tussen de 1 en de 2
-				} else if(elapsedTime >= 1 && elapsedTime <= 2){
-					aftelminigameview.uitslagLabel.setText("Wel ok, maar kan beter!");
-				// Tussen de -1 en de -2
-				} else if(elapsedTime <= -1 && elapsedTime >= -2){
-					aftelminigameview.uitslagLabel.setText("Wel ok, maar kan beter!");
-				// Boven de 2 en onder de -2
-				} else if(elapsedTime > 2 || elapsedTime < -2){
-					aftelminigameview.uitslagLabel.setText("Best wel slecht man");
-				}
+				// Start knop enablen + de timer weer visible maken
+				aftelminigameview.aanzetten();
+				// Bepaalde tekst neerzetten aan de hand van je uitslag
+				aftelminigameview.setUitslagLabel(verstrekenTijd);
 			}
 		});
-				
+
 	}
-	
+
 	class TimerHandler implements ActionListener{
 		public void actionPerformed(ActionEvent e){
-			currentTime = LocalTime.now().minusSeconds(aftelminigamemodel.randomStart);
-			long elapsedtime= ChronoUnit.MILLIS.between(currentTime, startTime);
-			if((int)elapsedtime/1000 == aftelminigamemodel.randomInvisible){
-				aftelminigameview.timerLabel.setVisible(false);
+			// Random start waarde ophalen en toewijzen aan currentTime
+			huidigeTijd = LocalTime.now().minusSeconds(aftelminigamemodel.getRandomStart());
+			// Elapsedtime aanmaken. Zie Stackoverflow.
+			long verstrekentijd = ChronoUnit.MILLIS.between(huidigeTijd, startTijd);
+			// Als de elapsedtime in secondes gelijk is aan de random invisible, zet de timerlabel op invisible.
+			if((int)verstrekentijd/1000 == aftelminigamemodel.getRandomInvisible()){
+				aftelminigameview.getTimerLabel().setVisible(false);
 			}
-			elapsedTime = (int) elapsedtime/1000;
-			//System.out.println(elapsedTime);
-			aftelminigameview.timerLabel.setText("Verstreken tijd: " + String.format("%.2f", (double)(elapsedtime/1000.0)) + " seconden" );
+			// Zet de tijd om in seconden met 2 cijfers achter de komma zodat je een preciezere tijd kan aflezen
+			verstrekenTijd = (int) verstrekentijd/1000;
+			aftelminigameview.getTimerLabel().setText("Verstreken tijd: " + String.format("%.2f", (double)(verstrekentijd/1000.0)) + " seconden" );
 		}
 	}
 
 }
+
