@@ -5,23 +5,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CheckView extends JPanel {
-    private GetallenOnthoudenModel getallenonthoudenmodel;
     private InvoerView invoerview;
     private GetallenOnthoudenController controller;
     private JLabel randomnummer, gegevenantwoord, levellabel;
     private int level=1;
     private JButton reset, next;
+    private Getal getal;
 
-    public CheckView(Getal getal){
-        getallenonthoudenmodel = new GetallenOnthoudenModel();
-        invoerview = new InvoerView(controller);
+    //ipv Getal getal controller?
+    public CheckView(GetallenOnthoudenController controller, String invoer){
         randomnummer = new JLabel("Nummer: " /*+ getallenonthoudeview.getal*/);
+
+        this.controller = controller;
 
         gegevenantwoord = new JLabel("Jouw antwoord: "/*+ getallenonthoudeview.getal*/);
 
         levellabel = new JLabel("Level " + level);
 
-        if(getal.genereerGetal == invoerview.invoer){
+        if( controller.getGetal().equals(invoer)){
             System.out.println("Goed geraden");
             next = new JButton("Volgend level");
             next.addActionListener(new NextHandler());
@@ -38,13 +39,13 @@ public class CheckView extends JPanel {
 
     class NextHandler implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            int gamescreen = 2;
+            controller.VolgendScherm();
         }
     }
 
     class ResetHandler implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-
+            controller.gamescreen=1;
         }
     }
 

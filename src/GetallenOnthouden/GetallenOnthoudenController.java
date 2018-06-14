@@ -11,7 +11,7 @@ public class GetallenOnthoudenController extends JPanel {
 	private InvoerView invoerview;
 	private CheckView checkview;
     public JButton startgame;
-    public int gamescreen = 0;
+    public int gamescreen = 1;
     private Getal getal;
 	
 	public GetallenOnthoudenController(){
@@ -42,26 +42,28 @@ public class GetallenOnthoudenController extends JPanel {
     }
 
     public void VolgendScherm(){
-	    if(gamescreen==0){
+        gamescreen++;
+	    if(gamescreen==2){
             getal = new Getal(5);
             getallenonthoudenview = new GetallenOnthoudenView(this);
             add(getallenonthoudenview, BorderLayout.CENTER);
             System.out.println(gamescreen);
             remove(startgame);
         }
-	    else if(gamescreen==1){
+	    else if(gamescreen==3){
             invoerview = new InvoerView(this);
             add(invoerview, BorderLayout.CENTER);
             System.out.println(gamescreen);
             remove(getallenonthoudenview);
-        }else if(gamescreen==2){
-            checkview = new CheckView(getal);
+        }else if(gamescreen==4){
+	        String invoerString = invoerview.getalinvoer.getText();
+            remove(invoerview);
+            checkview = new CheckView(this, invoerString);
             add(checkview, BorderLayout.CENTER);
             System.out.println(gamescreen);
-            remove(invoerview);
-        }else if(gamescreen==3){
-	        gamescreen=1;
+        }else if(gamescreen==5){
+	        gamescreen=2;
         }
-        gamescreen++;
+
     }
 }

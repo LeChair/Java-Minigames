@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 
 public class GetallenOnthoudenView extends JPanel {
 	private GetallenOnthoudenModel getallenOnthoudenModel;
@@ -16,7 +15,6 @@ public class GetallenOnthoudenView extends JPanel {
 	LocalTime startTime=LocalTime.now();
 	LocalTime currentTime=LocalTime.now();
 	private boolean isgestart=false;
-	public Getal getal;
 	
 	public GetallenOnthoudenView(GetallenOnthoudenController controller){
 
@@ -58,14 +56,12 @@ public class GetallenOnthoudenView extends JPanel {
 
 			tijdlabel.setText("Seconden:" + milliseconden/1000);
 //            tijdlabel.setText(String.format("%2.2f", (double)(elapsedtime/1000.0))+" seconden" );
-			if(milliseconden>1000){
+			if(milliseconden>3000){
 				controller.VolgendScherm();
 				timer.stop();
 			}
 		}
 	}
-
-	//timer maken
 }
 
 
