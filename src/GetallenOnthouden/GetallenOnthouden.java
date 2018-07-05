@@ -1,21 +1,23 @@
 package GetallenOnthouden;
 
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 
 public class GetallenOnthouden extends JFrame {
-	public static void main( String args[] ) {
-		JFrame frame = new GetallenOnthouden();
-
+	public static void main(String args[]) {
+		new GetallenOnthouden();
 	}
-	
-	public GetallenOnthouden(){
-		setSize(600, 500);
-		setTitle( "Mini Games" );
-		setContentPane( new GetallenOnthoudenController() );
-		setVisible( true );
+
+	public GetallenOnthouden() {
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(400, 400);
+		setPreferredSize(new Dimension(400,400));
+		setTitle("Mini Games");
+		GetallenOnthoudenController controller = new GetallenOnthoudenController();
+		setContentPane(controller);
+		setVisible(true);
+		controller.reset();
+		
 	}
 }
-
-
-//verschillende views (per scherm?), na op de startknop te hebben geklikt wordt er met een functie
-//een andere view geladen?

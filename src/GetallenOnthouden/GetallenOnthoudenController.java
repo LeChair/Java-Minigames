@@ -1,69 +1,87 @@
 package GetallenOnthouden;
 
-import java.awt.*;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
-import javax.swing.border.Border;
+
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 public class GetallenOnthoudenController extends JPanel {
+
 	private GetallenOnthoudenView getallenonthoudenview;
+	private StartView startview;
 	private InvoerView invoerview;
 	private CheckView checkview;
-    public JButton startgame;
-    public int gamescreen = 1;
-    private Getal getal;
-	
-	public GetallenOnthoudenController(){
+	private int gamescreen;
+	private String invoer;
+	private Getal getal;
+	private int level;
+
+	public GetallenOnthoudenController() {
 		setLayout(new BorderLayout());
-
-        startgame = new JButton("Start spel");
-        startgame.addActionListener(new Screen2Handler());
-
-        add(startgame, BorderLayout.NORTH);
-//        checkview = new CheckView();
-
-  //      add(checkview, BorderLayout.CENTER);
-
-//        add(checkview, BorderLayout.CENTER);
-
-
+		level = 1;
 	}
 
-    public Getal getGetal() {
-        return getal;
-    }
+	public Getal getGetal() {
+		return getal;
+	}
 
+	public int getLevel() {
+		return level;
+	}
 
-    class Screen2Handler implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            VolgendScherm();
-        }
-    }
+	public String getInvoer() {
+		return invoer;
+	}
 
-    public void VolgendScherm(){
-        gamescreen++;
-	    if(gamescreen==2){
-            getal = new Getal(5);
-            getallenonthoudenview = new GetallenOnthoudenView(this);
-            add(getallenonthoudenview, BorderLayout.CENTER);
-            System.out.println(gamescreen);
-            remove(startgame);
-        }
-	    else if(gamescreen==3){
-            invoerview = new InvoerView(this);
-            add(invoerview, BorderLayout.CENTER);
-            System.out.println(gamescreen);
-            remove(getallenonthoudenview);
-        }else if(gamescreen==4){
-	        String invoerString = invoerview.getalinvoer.getText();
-            remove(invoerview);
-            checkview = new CheckView(this, invoerString);
-            add(checkview, BorderLayout.CENTER);
-            System.out.println(gamescreen);
-        }else if(gamescreen==5){
-	        gamescreen=2;
-        }
+	public void reset() {
+		gamescreen = 0;
+		volgendScherm();
+	}
 
-    }
+	public void nextLevel() {
+		level++;
+		volgendScherm();
+	}
+
+	public void volgendScherm() {
+
+		gamescreen++;
+		System.out.println("Volgend scherm: " + gamescreen);
+
+		if (gamescreen == 1) {
+			startview = new StartView(this);
+			add(startview, BorderLayout.CENTER);
+
+		} else if (gamescreen == 2) {
+			remove(startview);
+			getal = new Getal(5);
+			getallenonthoudenview = new GetallenOnthoudenView(this);
+			add(getallenonthoudenview, BorderLayout.CENTER);
+
+		} else if (gamescreen == 3) {
+			remove(getallenonthoudenview);
+			invoerview = new InvoerView(this);
+			add(invoerview, BorderLayout.CENTER);
+
+		} else if (gamescreen == 4) {
+			invoer = invoerview.getInput();
+			remove(invoerview);
+			checkview = new CheckView(this);
+			add(checkview);
+
+		} else if (gamescreen == 5) {
+			remove(checkview);
+			reset();
+		}
+
+		SwingUtilities.getWindowAncestor(this).pack();
+	}
+
+	class ScreenHandler implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			volgendScherm();
+		}
+	}
 }

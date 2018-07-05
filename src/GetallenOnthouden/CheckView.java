@@ -1,52 +1,55 @@
 package GetallenOnthouden;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 public class CheckView extends JPanel {
-    private InvoerView invoerview;
-    private GetallenOnthoudenController controller;
-    private JLabel randomnummer, gegevenantwoord, levellabel;
-    private int level=1;
-    private JButton reset, next;
-    private Getal getal;
+	
+	private GetallenOnthoudenController controller;
 
-    //ipv Getal getal controller?
-    public CheckView(GetallenOnthoudenController controller, String invoer){
-        randomnummer = new JLabel("Nummer: " /*+ getallenonthoudeview.getal*/);
+	public CheckView(GetallenOnthoudenController controller) {
+		
+		this.controller = controller;
 
-        this.controller = controller;
+		JLabel nummerLabel = new JLabel("Nummer: " + controller.getGetal());
+		JLabel antwoordLabel = new JLabel("Jouw antwoord: " + controller.getInvoer());
+		JLabel resultLabel = new JLabel("");
+		JLabel levelLabel = new JLabel("Level " + controller.getLevel());
+		JButton button = new JButton();
+		
+		if (controller.getGetal().getGetal().equals(controller.getInvoer())) {
+			System.out.println("Goed geraden.");
+			button.setText("Volgend level");
+			button.addActionListener(new NextHandler());
+			resultLabel.setText("Dat is goed!!");
+		} else {
+			System.out.println("Fout geraden!");
+			button.setText("Opnieuw beginnen");
+			button.addActionListener(new ResetHandler());
+			resultLabel.setText("Helaas, dat is fout!");
+		}
 
-        gegevenantwoord = new JLabel("Jouw antwoord: "/*+ getallenonthoudeview.getal*/);
+		add(nummerLabel);
+		add(antwoordLabel);
+		add(levelLabel);
+		add(resultLabel);
+		add(button);
+	}
 
-        levellabel = new JLabel("Level " + level);
+	class NextHandler implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			controller.nextLevel();
+		}
+	}
 
-        if( controller.getGetal().equals(invoer)){
-            System.out.println("Goed geraden");
-            next = new JButton("Volgend level");
-            next.addActionListener(new NextHandler());
-        }else{
-            System.out.println("Fout!");
-            reset = new JButton("Opnieuw beginnen");
-            reset.addActionListener(new ResetHandler());
-        }
-
-        add(randomnummer);
-        add(gegevenantwoord);
-        add(levellabel);
-    }
-
-    class NextHandler implements ActionListener{
-        public void actionPerformed(ActionEvent e) {
-            controller.VolgendScherm();
-        }
-    }
-
-    class ResetHandler implements ActionListener{
-        public void actionPerformed(ActionEvent e) {
-            controller.gamescreen=1;
-        }
-    }
+	class ResetHandler implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			controller.volgendScherm();
+		}
+	}
 
 }
